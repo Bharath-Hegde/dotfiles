@@ -5,6 +5,7 @@ fi
 
 # Use 'jk' to escape in vi-mode
 bindkey -M viins 'jk' vi-cmd-mode
+bindkey "^O" clear-screen
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 ZSH_AUTOSUGGEST_USE_ASYNC='true'
