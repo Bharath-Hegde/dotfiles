@@ -26,6 +26,9 @@ Plug 'windwp/nvim-autopairs'
 " Navigate between vim splits and tmux splits
 Plug 'christoomey/vim-tmux-navigator'
 
+" Manipulate your filesystem just like you manipulate text
+Plug 'elihunter173/dirbuf.nvim'
+
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 " Plug 'xuhdev/vim-latex-live-preview'
 
