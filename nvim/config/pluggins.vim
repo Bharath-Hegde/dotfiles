@@ -17,6 +17,7 @@ Plug 'tpope/vim-commentary'
 
 " Surround 
 Plug 'tpope/vim-surround'
+
 " status line
 Plug 'itchyny/lightline.vim'
 
@@ -27,7 +28,10 @@ Plug 'windwp/nvim-autopairs'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Manipulate your filesystem just like you manipulate text
-Plug 'elihunter173/dirbuf.nvim'
+" Plug 'elihunter173/dirbuf.nvim'
+
+" Intereact with databases like MySQL
+Plug 'tpope/vim-dadbod'
 
 " A Vim Plugin for Lively Previewing LaTeX PDF Output
 " Plug 'xuhdev/vim-latex-live-preview'
@@ -60,5 +64,9 @@ let g:lightline = {
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_BaseDir = '~/.cache'
+
+"assign variable to mysql connection url
+let g:db = "mysql://root@localhost/"
+
 " configs written in lua
 luafile $HOME/.config/nvim/luaconfig.lua
