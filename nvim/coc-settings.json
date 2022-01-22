@@ -31,5 +31,6 @@
 				"prolog"
 			]
 		}
-	}
+	},
+	"coc.preferences.currentFunctionSymbolAutoUpdate": true
 }
