@@ -15,9 +15,8 @@ alias g++="g++ -std=c++17"
 # Set default editor to nvim
 export EDITOR="nvim"
 
-# Easy access to config
-alias zshconfig="$EDITOR ~/.zshrc"
-alias vimconfig="$EDITOR ~/.config/nvim/init.vim"
+# Easy access to config - fire up telescope find config inside vim
+alias Config="vim -c ':Config'"
 
 # Easy access nvim
 alias "v"="nvim"

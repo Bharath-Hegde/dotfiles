@@ -30,8 +30,8 @@ Plug 'christoomey/vim-tmux-navigator'
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-" Dependencies for telescope
-" Plug 'nvim-telescope/telescope-fzy-native.nvim'
+" Extensions for telescope
+Plug 'nvim-telescope/telescope-fzy-native.nvim'
 
 " Devicons
 Plug 'kyazdani42/nvim-web-devicons'
@@ -48,6 +48,7 @@ call plug#end()
 " custom delay for jk map 
 let g:arpeggio_timeoutlen=200
 
+" >> STATUSLINE
 " show coc status in statusline
 set statusline^=%{coc#status()}
 function! CocCurrentFunction()
@@ -84,9 +85,64 @@ let g:lightline = {
       \   'currentfunction': 'CocCurrentFunction',
       \ },
       \ }
+" <<
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_BaseDir = '~/.cache'
 
 " configs written in lua
-luafile $HOME/.config/nvim/luaconfig.lua
+lua << EOF
+
+-- autopairing plugin load
+require('nvim-autopairs').setup{}
+local actions = require("telescope.actions")
+require('telescope').setup{
+  defaults = {
+    -- Default configuration for telescope goes here:
+    -- config_key = value,
+    mappings = {
+      i = {
+        -- map actions.which_key to <C-h> (default: <C-/>)
+        -- actions.which_key shows the mappings for your picker,
+        -- e.g. git_{create, delete, ...}_branch for the git_branches picker
+        ["<C-h>"] = "which_key",
+	    ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      }
+    }
+  },
+  pickers = {
+    -- Default configuration for builtin pickers goes here:
+    -- picker_name = {
+    --   picker_config_key = value,
+    --   ...
+    -- }
+    -- Now the picker_config_key will be applied every time you call this
+    -- builtin picker
+  },
+  extensions = {
+    -- Your extension configuration goes here:
+    -- extension_name = {
+    --   extension_config_key = value,
+    -- }
+    -- please take a look at the readme of the extension you want to configure
+	fzy_native = {
+		override_generic_sorter = false,
+		override_file_sorter = true,
+	}
+  }
+}
+function find_configs()
+  require("telescope.builtin").find_files {
+    prompt_title = " Find Configs",
+    results_title = "Config Files",
+	shorten_path = true,
+    search_dirs = {
+      "~/programming/dotfiles/",
+    },
+    cwd = "~/programming/dotfiles/",
+  }
+end
+
+require('telescope').load_extension('fzy_native')
+EOF

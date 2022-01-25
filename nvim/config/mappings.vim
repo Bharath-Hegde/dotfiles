@@ -20,6 +20,9 @@ inoremap <C-c> <Esc>m`o<Esc>``a
 map gn :bn<cr>
 map gp :bp<cr>
 
+" Close current buffer
+map <leader>bd :bd<cr>
+
 " Extend ci" ca" functionality to {,(,[
 nnoremap ci{ f}vi{di
 nnoremap ca{ f}va{di
@@ -36,11 +39,19 @@ nnoremap ca[ f]va[di
 
 " Navigate between splits - vim/tmux
 " let g:tmux_navigator_no_mappings = 1
-nnoremap <silent> {C-h} :TmuxNavigateLeft<cr> 
-nnoremap <silent> {C-j} :TmuxNavigateDown<cr>
-nnoremap <silent> {C-k} :TmuxNavigateUp<cr>
-nnoremap <silent> {C-l} :TmuxNavigateRight<cr>
-nnoremap <silent> {C-\} :TmuxNavigatePrevious<cr>
+nnoremap <silent> <C-h> :TmuxNavigateLeft<cr> 
+nnoremap <silent> <C-j> :TmuxNavigateDown<cr>
+nnoremap <silent> <C-k> :TmuxNavigateUp<cr>
+nnoremap <silent> <C-l> :TmuxNavigateRight<cr>
+nnoremap <silent> <C-\> :TmuxNavigatePrevious<cr>
+
+" >> Telescope mappings
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+" <<
 
 " Digraphs
 digraph fa 8704
