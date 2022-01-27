@@ -19,8 +19,14 @@ source $HOME/.config/nvim/pswds.vim
 " Get output as list of databases
 " Get tabcompletion for these lists
 
-func! DBSelected(db_name)
-	let b:db = g:db.a:db_name
+func! DBSelected(...)
+	" Clear databse selction in case no arguments provided
+	if a:0 == 0
+		let b:db = g:db
+	" Set db url otherwise
+	else
+		let b:db = g:db.a:1
+	endif
 endfunc
 
 function! GetActiveBuffers()
@@ -53,6 +59,6 @@ function! MakeCompletion(A,L,P) abort
 	return filter(l:targets, 'v:val =~ "^' . a:A . '"')
 endfunction
 
-command! -nargs=1 -complete=customlist,MakeCompletion DBSelect call DBSelected(<f-args>)
+command! -nargs=* -complete=customlist,MakeCompletion DBSelect call DBSelected(<f-args>)
 
 
