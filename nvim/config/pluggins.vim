@@ -60,10 +60,11 @@ endfunction
 function! SqlGetQuery()
 	let modified = &modified ? '+' : ''
 	if &filetype ==? "dbout"
+		let query = trim(match(expand('%'),'.*\.dbout$') > -1 ? join(readfile(expand('%:r').'.sql')) : '')
 		if &modified
-			return (match(expand('%'),'.*\.dbout$') > -1 ? join(readfile(expand('%:r').'.sql')) : '').(' | ').(modified)
+			return query.(' | ').(modified)
 		else
-			return (match(expand('%'),'.*\.dbout$') > -1 ? join(readfile(expand('%:r').'.sql')) : '')
+			return query
 		endif
 	else
 		return modified
