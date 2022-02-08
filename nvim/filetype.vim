@@ -4,5 +4,6 @@ if exists("did_load_filetypes")
 endif
 augroup filetypedetect
   au! BufRead,BufNewFile *.dbout	setfiletype dbout
+  au! BufRead,BufNewFile *.asm		setfiletype masm
 augroup END
 
