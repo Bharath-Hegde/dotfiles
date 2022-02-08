@@ -21,6 +21,10 @@ set noswapfile
 
 set autochdir
 
+" direction to open splits
+set splitright
+set splitbelow
+
 set wildmenu
 set wildmode=longest:list,full
 

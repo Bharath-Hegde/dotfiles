@@ -3,6 +3,10 @@ call arpeggio#map('ixoc', '', 0, 'jk', '<Esc>')
 
 let g:mapleader=" "
 
+nnoremap <leader>co :call IOBufferSetup()<cr>
+nnoremap <leader>cc :call CloseIOBuffers()<cr>
+nnoremap <leader>cr :call CompileAndRun()<cr>
+
 " Select all
 nnoremap <leader>a ggVG
 
