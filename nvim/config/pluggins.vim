@@ -9,8 +9,11 @@ Plug 'kana/vim-arpeggio'
 " Autocompletion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
+" Snippet support
+Plug 'SirVer/ultisnips'
+
 " variety of code snippets
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 
 " easy commenting
 Plug 'tpope/vim-commentary'
@@ -90,6 +93,10 @@ let g:lightline = {
 
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_BaseDir = '~/.cache'
+
+" let g:UltiSnipsExpandTrigger="<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-l>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-h>"
 
 " configs written in lua
 lua << EOF
