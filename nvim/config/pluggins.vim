@@ -94,9 +94,10 @@ let g:lightline = {
 autocmd FileType java setlocal omnifunc=javacomplete#Complete
 let g:JavaComplete_BaseDir = '~/.cache'
 
-" let g:UltiSnipsExpandTrigger="<C-j>"
+" Ultisnips configg
 let g:UltiSnipsJumpForwardTrigger = "<C-l>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-h>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-h>"
+let g:UltiSnipsEditSplit = "vertical"
 
 " configs written in lua
 lua << EOF
