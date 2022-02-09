@@ -1,0 +1,20 @@
+snippet ct "create table" b
+create table ${1:table_name}($2);
+endsnippet
+
+snippet i "insert all values into table" b
+insert into ${1:table_name} values($2);
+endsnippet
+
+snippet is "insert some values into table"
+insert into ${1:table_name}(${2}) values($3);
+endsnippet
+
+snippet sl "select rows from table"
+select ${1:*} from ${2:table_name}
+endsnippet
+
+snippet st "show tables"
+show tables;
+endsnippet
+
