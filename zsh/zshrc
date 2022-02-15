@@ -18,6 +18,8 @@ export EDITOR="nvim"
 # Easy access to config - fire up telescope find config inside vim
 alias Config="vim -c ':Config'"
 
+alias dotfiles="cd ~/programming/dotfiles/"
+
 # Easy access nvim
 alias "v"="nvim"
 alias "vim"="nvim"

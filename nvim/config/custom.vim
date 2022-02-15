@@ -8,6 +8,7 @@ func! IOBufferSetup()
 	let s:workingFileType=&filetype
 
 	vsplit input.file
+	execute(":w")
 
 	" Save the input window
 	let s:inputWindow=winnr()
@@ -34,7 +35,7 @@ func! CompileAndRun()
 		execute("!cat input.file | python3 ". s:workingFileName ." > output.file")
 	elseif s:workingFileType ==? "cpp"
 		" g++ test.cpp -o test.cpp.out &&  ./test.cpp.out < input.file > output.file
-		execute("! g++ ". s:workingFileName ." -o ". s:workingFileName .".out &&  ./". s:workingFileName .".out< input.file > output.file")
+		execute("! g++ -std=c++17 ". s:workingFileName ." -o ". s:workingFileName .".out 2>output.file &&  ./". s:workingFileName .".out< input.file >> output.file")
 
 	elseif s:workingFileType ==? "c"
 		execute("! gcc ". s:workingFileName ." -o ". s:workingFileName .".out &&  ./". s:workingFileName .".out< input.file > output.file")

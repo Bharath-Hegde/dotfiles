@@ -1,0 +1,52 @@
+snippet temp "CPP template" b
+//#include <bits/stdc++.h>
+#include <iostream>
+#include <stdio.h>
+#include <vector>
+using namespace std;
+
+#define fo(i, n) for (int i = 0; i < n; i++)
+#define si(x) scanf("%d", &x)
+#define si2(x, y) scanf("%d%d", &x, &y)
+#define si3(x, y, z) scanf("%d%d%d", &x, &y, &z)
+#define sl(x) scanf("%lld", &x)
+#define ss(s) scanf("%s", s)
+#define pi(x) printf("%d\n", x)
+#define pl(x) printf("%lld\n", x)
+#define ps(s) printf("%s\n", s)
+#define deb(x) cout << #x << " = " << x << endl
+#define deb2(x, y) cout << #x << " = " << x << ", " << #y << " = " << y << endl
+#define pb push_back
+#define mp make_pair
+#define tr(it, a) for (auto it = a.begin(); it != a.end(); it++)
+
+typedef long long ll;
+typedef long double lld;
+typedef vector<int> vi;
+typedef vector<ll> vl;
+typedef vector<vi> vvi;
+typedef vector<vl> vvl;
+
+vi getSpaceSepIp(){
+	vi v;
+	int i = 0;
+	int temp;
+	while(true) {
+		si(temp);
+		v.pb(temp);
+		if (cin.peek() == '\n')
+			return v;
+		i++;
+	}
+}
+
+void printVector(vi v){
+	fo(i, v.size())
+		printf("%d ",v[i]);
+	cout << '\n';
+}
+
+int main(){
+	$0
+}
+endsnippet
