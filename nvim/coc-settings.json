@@ -1,36 +1,26 @@
 {
-	"coc.preferences.formatOnTypeFiletypes": [
-		"java",
-		"python",
-		"json"
-	],
-	"coc.preferences.formatOnSaveFiletypes": [
-		"java",
-		"python",
-		"json"
-	],
-	"coc.preferences.formatOnType": true,
-	"diagnostic.enable": true,
-	"python.linting.flake8Enabled": true,
-	"python.linting.enabled": true,
-	"clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
-	"languageserver": {
-		"prolog-lsp": {
-			"command": "swipl",
-			"args": [
-				"-g",
-				"use_module(library(lsp_server)).",
-				"-g",
-				"lsp_server:main",
-				"-t",
-				"halt",
-				"--",
-				"stdio"
-			],
-			"filetypes": [
-				"prolog"
-			]
-		}
-	},
-	"coc.preferences.currentFunctionSymbolAutoUpdate": true
+  "coc.preferences.formatOnTypeFiletypes": ["java", "python", "json"],
+  "coc.preferences.formatOnSaveFiletypes": ["java", "python", "json"],
+  "coc.preferences.formatOnType": true,
+  "diagnostic.enable": true,
+  "python.linting.flake8Enabled": true,
+  "python.linting.enabled": true,
+  "clangd.path": "~/.config/coc/extensions/coc-clangd-data/install/13.0.0/clangd_13.0.0/bin/clangd",
+  "languageserver": {
+    "prolog-lsp": {
+      "command": "swipl",
+      "args": [
+        "-g",
+        "use_module(library(lsp_server)).",
+        "-g",
+        "lsp_server:main",
+        "-t",
+        "halt",
+        "--",
+        "stdio"
+      ],
+      "filetypes": ["prolog"]
+    }
+  },
+  "coc.preferences.currentFunctionSymbolAutoUpdate": true
 }
