@@ -27,6 +27,7 @@ func! DBSelected(...)
 	else
 		let b:db = g:db.a:1
 	endif
+	execute ":DB show tables"
 endfunc
 
 function! GetActiveBuffers()

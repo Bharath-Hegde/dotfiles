@@ -18,3 +18,14 @@ snippet st "show tables"
 show tables;
 endsnippet
 
+snippet ctri "create trigger" b
+delimiter //
+create trigger ${1:trigger_name}
+${2|before,after|} ${3|insert,update,delete|}
+on ${4:table_name}
+for each row
+begin
+	$5
+end; //
+delimiter ;
+endsnippet
