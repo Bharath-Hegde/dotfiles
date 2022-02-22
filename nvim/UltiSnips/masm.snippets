@@ -1,4 +1,4 @@
-snippet temp "template" b
+snippet tiny "template" b
 .model tiny
 .486
 
@@ -11,3 +11,72 @@ $1
 .exit
 end
 endsnippet
+
+snippet small "template" b
+.model small
+.486
+.stack
+
+.data
+$1
+
+.code
+.startup
+	$2
+.exit
+end
+endsnippet
+
+snippet disnl "new line characters for diplay" b
+disnl db 0dh,0ah,'$'
+endsnippet
+
+
+snippet nl "new line characters for diplay"
+0dh,0ah
+endsnippet
+
+snippet ds "display string" b
+; string present at get_locn
+lea dx, ${1:get_locn}
+mov ah,09h
+int 21h
+endsnippet
+
+snippet dc "display character" b
+mov dl, ${1:char}
+mov ah,02h
+int 21h
+endsnippet
+
+snippet is "input string with echo" b
+lea dx, ${1:ipSize_locn}s
+mov ah,0ah
+int 21h
+; put this in .data
+$1s db ${2:num}
+$1a db ?
+$1d db $2 dup(?)
+endsnippet
+
+
+snippet ise "input string without echo" b
+; store_locn ipSize dup(?)
+mov cx, ${1:ipSize}
+lea di, ${2:store_locn}
+${3:flag}: mov ah,08h
+	int 21h
+	stosb
+	loop $3
+endsnippet
+
+snippet cmpstr "compare 2 strings" b
+mov cl, ${1:size}
+mov ch, 0
+lea si, ${2:string1}
+lea di, ${3:string2}
+repe cmpsb
+jnz ${4:flag} ; jump to $4 if srings not equal
+; if equal write below
+endsnippet
+
