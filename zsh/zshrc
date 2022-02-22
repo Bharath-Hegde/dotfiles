@@ -26,6 +26,10 @@ alias "vim"="nvim"
 
 alias "ls"="exa"
 
+function print_my_input() {
+ echo 'Your input: ' $1
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/Users/bharath/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -42,3 +46,5 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 eval "$(starship init zsh)"
+
+source "$HOME/programming/dotfiles/zsh/auto_run_masm.sh"
