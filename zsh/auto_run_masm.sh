@@ -2,7 +2,7 @@
 # Setup:
 # 1) Copy the function masm(){...} into your zshrc/bashrc
 #	 OR
-#	 Save this file and source it in your zshrc/bashrc (edit shebang to bashrc if bash)
+#	 Save this file and source it in your zshrc/bashrc (edit shebang to #!/bin/bash if bash)
 # 2) edit the 'masm_path' to the path of your MASM611 directory 
 #    and the 'dosbox_config_path' to your dosboxconfig file (this is generally the same)
 #
@@ -13,16 +13,17 @@
 
 # Function does the following:
 #	1) closes dosbox if its currently running (so that config file may be reloaded)
-#	2) edits the config file according to the arguments provided
+#	2) edits the [autoexec] section of the dosboxconfig file according to the arguments provided
 #	4) creates a symlink of the given file inside the masm611/bin folder (see note)
 #	5) opens dosbox
 #	6) restores config file to just "lines"
 
 # Note:
-# * The command can be run from any directory other than masm611. 
+# * The command can be run from any directory other than masm611/bin
 #	A symlink will be created to your file. (so that any changes you make will automatically be reflected)
-#	Comment lines given in 69 if you wish to use this command inside the bin folder
+#	Comment lines given in 70 if you wish to use this command inside the bin folder
 # * Currently, doesn't work for filename sizes greater than 6 (excluding .asm extenstion)
+# * edit "lines" to include any other configs you want to always include in the [autoexec]
 
 masm () {
 	# to define
