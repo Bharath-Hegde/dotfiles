@@ -4,3 +4,5 @@ func! CreateSymlink()
 		execute("!ln -s "."%:p ". path)
 	endif
 endfunc
+set commentstring=;%s
+" set commentstring=;%s

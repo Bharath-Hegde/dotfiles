@@ -47,4 +47,5 @@ unset __conda_setup
 
 eval "$(starship init zsh)"
 
+# put this in .zshenv for CompileAndRun() to work for masm files
 source "$HOME/programming/dotfiles/zsh/auto_run_masm.sh"
