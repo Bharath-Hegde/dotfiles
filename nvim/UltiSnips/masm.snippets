@@ -31,9 +31,16 @@ snippet disnl "new line characters for diplay" b
 disnl db 0dh,0ah,'$'
 endsnippet
 
-
 snippet nl "new line characters for diplay"
 0dh,0ah
+endsnippet
+
+# Display
+
+snippet dc "display character" b
+mov dl, ${1:char}
+mov ah,02h
+int 21h
 endsnippet
 
 snippet ds "display string" b
@@ -43,10 +50,17 @@ mov ah,09h
 int 21h
 endsnippet
 
-snippet dc "display character" b
-mov dl, ${1:char}
-mov ah,02h
+# Input
+snippet ic "input character with echo" b
+mov ah,01
 int 21h
+mov ${1:store_locn},al ; char stored in al register
+endsnippet
+
+snippet ice "input character without echo" b
+mov ah,08 ; can use 07 also
+int 21h
+mov ${1:store_locn},al ; char stored in al register
 endsnippet
 
 snippet is "input string with echo" b
@@ -58,7 +72,6 @@ $1s db ${2:num}
 $1a db ?
 $1d db $2 dup(?)
 endsnippet
-
 
 snippet ise "input string without echo" b
 ; store_locn ipSize dup(?)
@@ -80,3 +93,57 @@ jnz ${4:flag} ; jump to $4 if srings not equal
 ; if equal write below
 endsnippet
 
+# File Operations
+snippet cf "create file" b
+mov ah,3ch
+lea dx,${1:fname_locn}
+mov cl,20h
+int 21h
+; mov handle,ax
+; in data
+; $1 db "${2:filename.txt}",0
+; handle dw ?
+endsnippet
+
+snippet of "open file" b
+; permission - 0=read, 01h=write, 02h=read&write
+mov ah,3dh
+lea dx,${1:fname_locn}
+mov al,${2:permission}
+int 21h
+endsnippet
+
+snippet rf "read file" b
+mov ah,3Fh
+mov bx,${1:handle}
+mov cx,${2:noOfBytesToRead}
+lea dx,${3:addressOfData}
+int 21h
+; in data
+; $3 db $2 dup(?)
+endsnippet
+
+snippet wf "write to file" b
+mov ah,40h
+mov bx,${1:handle}
+lea dx,${2:addressOfData}
+mov cx,${3:noOfBytesToWrite}
+int 21h
+; in data
+; $2 db "somedata"
+endsnippet
+
+snippet clf "close file" b
+mov ah,3eh
+int 21h
+endsnippet
+
+snippet mfp "move file pointer" b
+; movementCode: 0=beg, 1=curr, 2=end
+mov ah,42h
+mov al,${1:movementCode}
+mov bx,${2:handle}
+mov cx, ${3:lowerWord}
+mov dx, ${4:upperWord}
+int 21h
+endsnippet
