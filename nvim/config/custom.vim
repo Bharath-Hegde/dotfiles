@@ -1,6 +1,16 @@
 " command! Vimconfig :e ~/.config/nvim/init.vim
 command! Config :lua find_configs()
 
+func! LoadJournalSettings()
+	:Goyo
+	set wrap
+	set linebreak
+	noremap j gj
+	noremap k gk
+	noremap $ g$
+	noremap 0 g0
+endfunc
+
 let s:opened = 0
 " setup input/output buffers on the right side for python,cpp,c
 func! IOBufferSetup()

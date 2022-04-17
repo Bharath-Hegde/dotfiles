@@ -7,6 +7,10 @@ nnoremap <leader>co :call IOBufferSetup()<cr>
 nnoremap <leader>cc :call CloseIOBuffers()<cr>
 nnoremap <leader>cr :call CompileAndRun()<cr>
 
+nnoremap <leader>t :put =strftime('%c')<cr>
+
+nnoremap <leader>js :call LoadJournalSettings()<cr>
+
 " Select all
 nnoremap <leader>a ggVG
 

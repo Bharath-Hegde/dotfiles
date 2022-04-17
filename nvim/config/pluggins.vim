@@ -44,6 +44,9 @@ Plug 'kyazdani42/nvim-web-devicons'
 
 " Intereact with databases like MySQL
 Plug 'tpope/vim-dadbod'
+
+" test
+Plug 'junegunn/goyo.vim'
 call plug#end()
 
 " plug configurations
