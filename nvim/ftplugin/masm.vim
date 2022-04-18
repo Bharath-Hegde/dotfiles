@@ -5,4 +5,3 @@ func! CreateSymlink()
 	endif
 endfunc
 set commentstring=;%s
-" set commentstring=;%s
