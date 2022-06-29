@@ -2,3 +2,11 @@ snippet for "for loop" b
 for ${1:item} in ${2:iterable}:
 	${3:${VISUAL:pass}}
 endsnippet
+
+snippet ii "integer input" b
+${1:var} = int(input())
+endsnippet
+
+snippet li "space sep list integer input"
+${1:li} = list(map(int,input().split()))
+endsnippet
