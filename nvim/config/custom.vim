@@ -56,9 +56,13 @@ func! CompileAndRun()
 		elseif choice == 2
 			execute("!masm ". s:workingFileName . " debugx")
 		endif
+	elseif s:workingFileType ==? "tex"
+		" execute("! xelatex main.tex && open main.pdf")
+		"
+
+		execute("! xelatex main.tex && open main.pdf && osascript -e 'tell application \"System Events\" to key code 48 using command down'")
 	endif
-	
-	if s:opened == 0 && !(s:workingFileType ==? "masm")
+	if s:opened == 0 && !(s:workingFileType ==? "masm") && !(s:workingFileType ==? "tex")
 		execute("call IOBufferSetup()")
 		let s:opened = 1
 	endif

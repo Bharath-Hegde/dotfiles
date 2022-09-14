@@ -19,7 +19,7 @@ set nowrap
 set smartindent
 set noswapfile
 
-set autochdir
+" set autochdir
 
 " direction to open splits
 set splitright
