@@ -17,6 +17,9 @@ nnoremap <leader>a ggVG
 " Clear highlights after search
 nnoremap <leader>l :noh<CR>
 
+" Paste without overwriting paste reg
+xnoremap <leader>p "_dP
+
 " Source init file
 nnoremap <leader>so :so ~/.config/nvim/init.vim<CR>
 

@@ -108,9 +108,11 @@ lua << EOF
 
 -- autopairing plugin load
 require('nvim-autopairs').setup{}
+
 local actions = require("telescope.actions")
 require('telescope').setup{
   defaults = {
+	file_ignore_patterns = {".git/", ".cache", "%.o", "%.a", "%.out", "%.class","%.pdf", "%.mkv", "%.mp4", "%.zip", "%.png"},
     -- Default configuration for telescope goes here:
     -- config_key = value,
     mappings = {
